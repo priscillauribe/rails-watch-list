@@ -1,1 +1,13 @@
 <h1><%= @list.name %></h1>
+
+<%# display all bookmarks first %>
+<h2>Movies</h2>
+<ul>
+<% @bookmarks.each do |bookmark| %>
+<li>
+<%= bookmark.movie.title %>
+<%# then delete  %>
+<%= link_to 'Delete Bookmark', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>
+</ul>
+<% end %>
